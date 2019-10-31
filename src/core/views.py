@@ -3,12 +3,16 @@ from django.http import JsonResponse
 
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from rest_framework.permissions import IsAuthenticated
 
 from .models import Post
 from .serializers import PostSerializer
 
 
 class TestView(APIView):
+
+    permission_classes = (IsAuthenticated,)
+
     def get(self, request, *args, **kwargs):
         all_posts = Post.objects.all()
         post = all_posts.first()
