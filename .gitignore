@@ -4,3 +4,4 @@ static
 # Python bytecode
 __pycache__
 **/*.pyc
+*.sqlite3
